@@ -8,5 +8,8 @@ int main()
     lista.insert_front('b');
     lista.insert_front('c');
     std::cout << lista.to_string() << "\n";
+
+    LinkedList<char> lista2;
+    // lista2 = lista;
     return 0;
 }
