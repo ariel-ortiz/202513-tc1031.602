@@ -13,6 +13,15 @@ public:
     // Complexity: O(1)
     TreeSet() {}
 
+    // Complexity: O(N log N)
+    TreeSet(std::initializer_list<T> args)
+    {
+        for (T elem : args) {
+            add(elem);
+        }
+    }
+
+    // Complexity: O(log N)
     bool add(T value)
     {
         if (not _root) { // Tree is empty
@@ -46,6 +55,17 @@ public:
         }
     }
 
+    // Complexity: O(1)
+    int size() const
+    {
+        return _size;
+    }
+
+    // Complexity: O(1)
+    bool is_empty() const
+    {
+        return not size();
+    }
 
 private:
 
