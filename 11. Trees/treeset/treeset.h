@@ -91,6 +91,22 @@ public:
         _postorder(fn, _root);
     }
 
+    // Complexity: O(N)
+    void levelorder(std::function<void(T)> fn) const
+    {
+        std::queue<Node*> queue;
+        queue.push(_root);
+        while (not queue.empty()) {
+            Node* p = queue.front();
+            queue.pop();
+            if (p) {
+                fn(p->value);
+                queue.push(p->left);
+                queue.push(p->right);
+            }
+        }
+    }
+
 private:
 
     struct Node {

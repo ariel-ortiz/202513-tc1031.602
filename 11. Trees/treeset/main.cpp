@@ -23,5 +23,7 @@ int main()
     std::cout << "\n";
     a.inorder(suma_int);
     std::cout << global_sum << "\n";
+    a.levelorder(print_int);
+    std::cout << "\n";
     return 0;
 }

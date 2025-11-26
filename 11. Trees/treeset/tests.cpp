@@ -157,31 +157,31 @@ TEST_CASE("test the TreeSet class")
             15, 14, 12, 8} == vi4);
     }
 
-    // SECTION("test levelorder") {
-    //     std::vector<std::string> vs1, vs2, vs3, vs4;
-    //     std::vector<int> vi1, vi2, vi3, vi4;
-    //     a.levelorder([&] (std::string s) { vs1.push_back(s); });
-    //     REQUIRE(std::vector<std::string> {} == vs1);
-    //     b.levelorder([&] (std::string s) { vs2.push_back(s); });
-    //     REQUIRE(std::vector<std::string> {"a"} == vs2);
-    //     c.levelorder([&] (std::string s) { vs3.push_back(s); });
-    //     REQUIRE(std::vector<std::string> {"m", "g", "r", "a", "k",
-    //         "p", "z"} == vs3);
-    //     d.levelorder([&] (std::string s) { vs4.push_back(s); });
-    //     REQUIRE(std::vector<std::string> {"d", "c", "e", "b", "f",
-    //         "a", "g"} == vs4);
-    //     e.levelorder([&] (int i) { vi1.push_back(i); });
-    //     REQUIRE(std::vector<int> {22, 10, 30, 5, 15, 25, 35, 12, 17,
-    //         33, 40, 16, 19, 18, 20} == vi1);
-    //     f.levelorder([&] (int i) { vi2.push_back(i); });
-    //     REQUIRE(std::vector<int> {8, 1, 7, 2, 6, 3, 5, 4} == vi2);
-    //     g.levelorder([&] (int i) { vi3.push_back(i); });
-    //     REQUIRE(std::vector<int> {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
-    //         12, 13, 14, 15} == vi3);
-    //     h.levelorder([&] (int i) { vi4.push_back(i); });
-    //     REQUIRE(std::vector<int> {8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7,
-    //         9, 11, 13, 15} == vi4);
-    // }
+    SECTION("test levelorder") {
+        std::vector<std::string> vs1, vs2, vs3, vs4;
+        std::vector<int> vi1, vi2, vi3, vi4;
+        a.levelorder([&] (std::string s) { vs1.push_back(s); });
+        REQUIRE(std::vector<std::string> {} == vs1);
+        b.levelorder([&] (std::string s) { vs2.push_back(s); });
+        REQUIRE(std::vector<std::string> {"a"} == vs2);
+        c.levelorder([&] (std::string s) { vs3.push_back(s); });
+        REQUIRE(std::vector<std::string> {"m", "g", "r", "a", "k",
+            "p", "z"} == vs3);
+        d.levelorder([&] (std::string s) { vs4.push_back(s); });
+        REQUIRE(std::vector<std::string> {"d", "c", "e", "b", "f",
+            "a", "g"} == vs4);
+        e.levelorder([&] (int i) { vi1.push_back(i); });
+        REQUIRE(std::vector<int> {22, 10, 30, 5, 15, 25, 35, 12, 17,
+            33, 40, 16, 19, 18, 20} == vi1);
+        f.levelorder([&] (int i) { vi2.push_back(i); });
+        REQUIRE(std::vector<int> {8, 1, 7, 2, 6, 3, 5, 4} == vi2);
+        g.levelorder([&] (int i) { vi3.push_back(i); });
+        REQUIRE(std::vector<int> {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+            12, 13, 14, 15} == vi3);
+        h.levelorder([&] (int i) { vi4.push_back(i); });
+        REQUIRE(std::vector<int> {8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7,
+            9, 11, 13, 15} == vi4);
+    }
 
     // SECTION("test height") {
     //     REQUIRE(-1 == a.height());
