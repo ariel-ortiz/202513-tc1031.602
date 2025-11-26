@@ -67,6 +67,30 @@ public:
         return not size();
     }
 
+    // Complexity: O(log N)
+    bool contains(T value) const
+    {
+        return _contains(value, _root);
+    }
+
+    // Complexity: O(N)
+    void inorder(std::function<void(T)> fn) const
+    {
+        _inorder(fn, _root);
+    }
+
+    // Complexity: O(N)
+    void preorder(std::function<void(T)> fn) const
+    {
+        _preorder(fn, _root);
+    }
+
+    // Complexity: O(N)
+    void postorder(std::function<void(T)> fn) const
+    {
+        _postorder(fn, _root);
+    }
+
 private:
 
     struct Node {
@@ -77,6 +101,56 @@ private:
         Node* left = nullptr;
         Node* right = nullptr;
     };
+
+    bool _contains(T value, Node* p) const
+    {
+        if (not p) {
+            return false;
+        }
+
+        if (value == p->value) {
+            return true;
+        }
+
+        if (value < p->value) {
+            return _contains(value, p->left);
+        }
+
+        return _contains(value, p->right);
+    }
+
+    void _inorder(std::function<void(T)> fn, Node* p) const
+    {
+        if (not p) {
+            return;
+        }
+
+        _inorder(fn, p->left);
+        fn(p->value);
+        _inorder(fn, p->right);
+    }
+
+    void _preorder(std::function<void(T)> fn, Node* p) const
+    {
+        if (not p) {
+            return;
+        }
+
+        fn(p->value);
+        _preorder(fn, p->left);
+        _preorder(fn, p->right);
+    }
+
+    void _postorder(std::function<void(T)> fn, Node* p) const
+    {
+        if (not p) {
+            return;
+        }
+
+        _postorder(fn, p->left);
+        _postorder(fn, p->right);
+        fn(p->value);
+    }
 
     Node* _root = nullptr;
     int _size = 0;
